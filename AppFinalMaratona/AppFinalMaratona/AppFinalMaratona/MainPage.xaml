@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppFinalMaratona"
+             x:Class="AppFinalMaratona.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" 
+        iOS="0, 20, 0, 0" 
+        Android ="0, 0, 0, 0"
+        WinPhone ="0, 0, 0, 0"  />
+    </ContentPage.Padding>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About" Command="{Binding AboutCommand}"/>
+		<ToolbarItem Text="Login" Command="{Binding LoginCommand}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView x:Name="lvwPodcast"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding Loading}"
+                  ItemsSource="{Binding Podcasts}"
+                  ItemSelected="lvwPodcast_ItemSelected"
+                  Grid.Row="1"
+                  Margin="15,15,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell ImageSource="{Binding Imagem}"
+                               Text="{Binding Titulo}"
+                               Detail="{Binding SubTitulo}">
+                    </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
