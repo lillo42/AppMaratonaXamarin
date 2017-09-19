@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
 using System.Text;
-
+using System.Threading.Tasks;
 
 [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -56,7 +56,7 @@ namespace AppFinalMaratona.Droid
             string message = intent.Extras.GetString("message");
             if (!string.IsNullOrEmpty(message))
             {
-                CreateNotification("New todo item!", "Todo item: " + message);
+                CreateNotification("App Maratona", "Mensagem: " + message);
                 return;
             }
             string msg2 = intent.Extras.GetString("msg");
